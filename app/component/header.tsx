@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import {
   Dialog,
   DialogPanel,
@@ -39,7 +40,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-gray-900">
+    <header className="bg-white">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
@@ -65,16 +66,16 @@ export default function Header() {
 
         <div className="nav hidden lg:flex lg:gap-x-12">
 
-            <a href="../" className="text-sm/6 font-semibold text-white">
+            <a href="../" className="text-sm/6 font-semibold text-black">
             Homepage
           </a>
-            <a href="../product" className="text-sm/6 font-semibold text-white">
+            <a href="../product" className="text-sm/6 font-semibold text-black">
             Product
           </a>
-          <a href="../about" className="text-sm/6 font-semibold text-white">
+          <a href="../about" className="text-sm/6 font-semibold text-black">
             About
           </a>
-          <a href="../contact" className="text-sm/6 font-semibold text-white">
+          <a href="../contact" className="text-sm/6 font-semibold text-black">
             Contact
           </a>
 
@@ -82,7 +83,7 @@ export default function Header() {
 
         
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm/6 font-semibold text-white">
+          <a href="#" className="text-sm/6 font-semibold text-black">
             Log in <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -93,16 +94,20 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
-              <img
-                alt=""
-                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-                className="h-8 w-auto"
+              <Image
+                alt="Logo"
+                src="https://tailwindcss.com/plus-assets/img/logos/mark.svg"
+                width={0}    // Isi 0 agar tidak konflik
+                height={0}   // Isi 0 agar tidak konflik
+                sizes="100vw"
+                style={{ width: 'auto', height: '32px' }} // Tentukan tinggi di sini, lebar akan auto
+                className="h-8 w-auto" 
               />
             </a>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-gray-400"
+              className="-m-2.5 rounded-md p-2.5 text-black/400"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="size-6" />
@@ -112,7 +117,7 @@ export default function Header() {
             <div className="-my-6 divide-y divide-white/10">
               <div className="space-y-2 py-6">
                 <Disclosure as="div" className="-mx-3">
-                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
+                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-black hover:bg-white/5">
                     Product
                     <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-open:rotate-180" />
                   </DisclosureButton>
@@ -131,19 +136,19 @@ export default function Header() {
                 </Disclosure>
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-black hover:bg-white/5"
                 >
                   Features
                 </a>
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-black hover:bg-white/5"
                 >
                   Marketplace
                 </a>
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-black hover:bg-white/5"
                 >
                   Company
                 </a>
@@ -151,7 +156,7 @@ export default function Header() {
               <div className="py-6">
                 <a
                   href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-white hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-black "
                 >
                   Log in
                 </a>
