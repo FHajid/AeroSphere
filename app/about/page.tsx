@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from '../component/header'
 import Image from 'next/image'
+import Footer from '../component/footer'
 
 import Nakedbike from '../../public/Nakedbike.jpg'
 
@@ -72,16 +73,11 @@ export default function aboutPage() {
 
       </section>
 
-    <section className='item-center text-center p-4 bg-gray-100'>
-      
-      <p className='text-4xl m-4'>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
-      <h1 className='text-7xl'>Contact US</h1>
-    </section>
+    
 
     </main>
     
+    <Footer />
     
 
     </div>
