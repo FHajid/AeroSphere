@@ -27,10 +27,10 @@ What i need to make
     To see all the 3d stuff because i want to make a motor, car, and an airplane why not 
 
 - about page
-    for and interesting background
+    ~~for and interesting background~~
 
 - contact page
-    for just a basi page
+    ~~for just a basi page~~
 
 
 
