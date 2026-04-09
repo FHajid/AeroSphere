@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <div>
     <section className='item-center text-center p-4 bg-green-100 '
-    style={{margin: '0 auto', padding: '1.5rem '}}
+    style={{margin: '0 auto', padding: '2.5rem 21rem '}}
     >
       
       <p className='text-4xl m-4 maxwidth-2xl mx-auto'>
