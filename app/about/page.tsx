@@ -6,10 +6,10 @@ import Nakedbike from '../../public/Nakedbike.jpg'
 
 export default function AboutPage() {
   return (
-    <div className="bg-white min-h-screen text-zinc-900 font-sans">
+    <div className="bg-white min-h-screen ">
       <Header />
 
-      <main className="max-w-[1020px] mx-auto px-6 py-12">
+      <main className="max-w-[1020px] mx-auto px-6 py-12 text-zinc-900 font-sans">
         {/* HERO SECTION */}
         <section className="mb-16">
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-6">
