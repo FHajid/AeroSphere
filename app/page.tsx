@@ -2,7 +2,7 @@
 import Header from "./component/header";
 import Card from "./component/card";
 
-import ThreeCube from "./component/3d";
+import Porsce911 from "./component/porsce911";
 
 
 export default function Home() {
@@ -13,8 +13,8 @@ export default function Home() {
         <Card />
 
       <div className="w-full h-[500px] bg-zinc-900">
-           <ThreeCube />
-        </div>
+      <Porsce911 />
+      </div>
 
       </main>
   );
