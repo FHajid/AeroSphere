@@ -4,6 +4,7 @@ import Card from "./component/card";
 
 import Porsce911 from "./component/porsche911";
 import Hondacrf from "./component/hondacrf";
+import HondaShadow from "./component/hondaShadow";
 
 
 export default function Home() {
@@ -18,7 +19,7 @@ export default function Home() {
       </div>
 
       <div className="w-full h-[500px] bg-zinc-900">
-      <Porsce911 />
+      <HondaShadow />
       </div>
 
       <div className="w-full h-[500px] bg-zinc-900">
