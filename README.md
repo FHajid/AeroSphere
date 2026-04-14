@@ -15,25 +15,18 @@ AeroSphere
 A Website Where it' about a vehicle that you can see in 3d.
 
 
-What i need to make 
+## 🛠️ Project Roadmap
 
-- Login page
-    i need this to train my self for using backend
-    add a Model Carousel and 3 Model for the 3d
-    Still working the design for it But the color would be standar black,white and Orange.
-
-- Homepage
-    a must have because this will be my front about the page and have to make it interesting
-
-- Product page
-    To see all the 3d stuff because i want to make a motor, car, and an airplane why not 
-
-- about page
-    ~~for and interesting background~~
-
-- contact page
-    ~~for just a basi page~~
-
+- [x] **Homepage**
+    - [x] Hero section with 3D Carousel (Porsche, Honda Shadow, CRF)
+    - [x] Tech stack features card
+- [ ] **Login Page** (Backend Practice)
+    - [ ] Integrated with Firebase/Supabase
+    - [ ] JWT Authentication
+- [ ] **Product Page**
+    - [ ] Categories: Motorcycles, Cars, and Airplanes
+- [ ] **About & Contact**
+    - [ ] Minimalist design with Black, White, and Orange theme
 
 
 
