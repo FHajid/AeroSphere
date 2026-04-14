@@ -1,57 +1,66 @@
-import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/20/solid'
+import { 
+  CpuChipIcon, 
+  VariableIcon, 
+  CubeTransparentIcon, 
+  RocketLaunchIcon 
+} from '@heroicons/react/24/outline' // Pakai outline agar lebih clean
 
 const features = [
   {
-    name: 'Push to deploy',
+    name: 'Real-time 3D Rendering',
     description:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-    icon: CloudArrowUpIcon,
+      'Rasakan detail presisi dari setiap sudut motor dengan teknologi Three.js terbaru langsung di browser Anda.',
+    icon: CubeTransparentIcon,
   },
   {
-    name: 'SSL certificates',
+    name: 'High Performance',
     description:
-      'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
-    icon: LockClosedIcon,
+      'Optimasi Next.js 16 memastikan transisi antar model 3D berjalan mulus tanpa lag di perangkat apapun.',
+    icon: RocketLaunchIcon,
   },
   {
-    name: 'Simple queues',
+    name: 'Engine Specifications',
     description:
-      'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
-    icon: ArrowPathIcon,
+      'Data teknis yang akurat untuk setiap model, memberikan informasi mendalam bagi para antusias otomotif.',
+    icon: CpuChipIcon,
   },
   {
-    name: 'Advanced security',
+    name: 'Interactive Customization',
     description:
-      'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
-    icon: FingerPrintIcon,
+      'Kemampuan untuk mengeksplorasi komponen internal motor secara interaktif dan mendalam.',
+    icon: VariableIcon,
   },
 ]
 
 export default function Card() {
   return (
-    <div className="bg-gray-900 py-24 sm:py-32">
+    <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base/7 font-semibold text-indigo-400">Deploy faster</h2>
-          <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl lg:text-balance">
-            Everything you need to deploy your app
+          <h2 className="text-sm font-bold tracking-[0.3em] uppercase text-zinc-500">
+            AeroSphere Technology
+          </h2>
+          <p className="mt-2 text-4xl font-black tracking-tighter text-zinc-900 sm:text-5xl">
+            The Future of Automotive Showcase
           </p>
-          <p className="mt-6 text-lg/8 text-gray-300">
-            Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
-            pulvinar et feugiat blandit at. In mi viverra elit nunc.
+          <p className="mt-6 text-lg leading-8 text-zinc-600">
+            Kami menggabungkan seni otomotif dengan teknologi web modern untuk memberikan pengalaman visual yang belum pernah ada sebelumnya.
           </p>
         </div>
+
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-          <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
+          <dl className="grid max-w-xl grid-cols-1 gap-x-12 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
             {features.map((feature) => (
-              <div key={feature.name} className="relative pl-16">
-                <dt className="text-base/7 font-semibold text-white">
-                  <div className="absolute top-0 left-0 flex size-10 items-center justify-center rounded-lg bg-indigo-500">
+              <div key={feature.name} className="relative pl-16 group">
+                <dt className="text-lg font-bold leading-7 text-zinc-900">
+                  <div className="absolute top-0 left-0 flex size-12 items-center justify-center rounded-xl bg-zinc-900 transition-transform group-hover:scale-110 group-hover:bg-black">
                     <feature.icon aria-hidden="true" className="size-6 text-white" />
                   </div>
                   {feature.name}
                 </dt>
-                <dd className="mt-2 text-base/7 text-gray-400">{feature.description}</dd>
+                <dd className="mt-2 text-base leading-7 text-zinc-500">
+                  {feature.description}
+                </dd>
               </div>
             ))}
           </dl>

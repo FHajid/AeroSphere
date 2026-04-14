@@ -19,6 +19,7 @@ What i need to make
 
 - Login page
     i need this to train my self for using backend
+    add a Model Carousel and 3 Model for the 3d
 
 - Homepage
     a must have because this will be my front about the page and have to make it interesting
