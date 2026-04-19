@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from '../component/header'
 
-export default function contact() {
+export default function contactPage() {
   return (
 
     <div className="min-h-screen text-black bg-white">
