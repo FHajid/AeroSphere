@@ -14,6 +14,7 @@ AeroSphere
 
 A Website Where it' about a vehicle that you can see in 3d.
 
+### DEADLINE IS 30 APRIl.
 
 ## 🛠️ Project Roadmap
 
@@ -27,9 +28,14 @@ A Website Where it' about a vehicle that you can see in 3d.
     - [ ] Categories: Motorcycles, Cars, and Airplanes
 - [ ] **About & Contact**
     - [ ] Minimalist design with Black, White, and Orange theme
+- [ ] **Login & Register**
+    -[ ] Need a Register page or not still cannot decide it 
+
+
 
 Still working on it!
 I need to adapt to this man I still not very good at this. 
+
 
 
 
