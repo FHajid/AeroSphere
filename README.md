@@ -29,6 +29,7 @@ A Website Where it' about a vehicle that you can see in 3d.
     - [ ] Minimalist design with Black, White, and Orange theme
 
 Still working on it!
+I need to adapt to this man I still not very good at this. 
 
 
 
