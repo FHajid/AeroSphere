@@ -54,7 +54,7 @@ export default function Header() {
 
         {/* Log in (desktop only) */}
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors">
+          <a href="/login" className="text-sm font-medium text-zinc-700 hover:text-zinc-900 transition-colors">
             Log in →
           </a>
         </div>
@@ -106,7 +106,7 @@ export default function Header() {
           {/* Drawer log in */}
           <div className="mt-6 pt-6 border-t border-zinc-100">
             <a
-              href="#"
+              href="/login"
               className="block w-full rounded-xl bg-zinc-900 px-4 py-2.5 text-center text-sm font-medium text-white hover:bg-black transition-colors"
             >
               Log in
