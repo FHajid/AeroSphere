@@ -25,11 +25,12 @@ A Website Where it' about a vehicle that you can see in 3d.
     - [ ] Integrated with Firebase/Supabase
     - [ ] JWT Authentication
 - [ ] **Product Page**
+    - [ ] Add at least 1 for every categories
     - [ ] Categories: Motorcycles, Cars, and Airplanes
 - [ ] **About & Contact**
     - [ ] Minimalist design with Black, White, and Orange theme
 - [ ] **Login & Register**
-    -[ ] Need a Register page or not still cannot decide it 
+    -[x] Need a Register page or not still cannot decide it 
 
 
 
