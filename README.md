@@ -9,10 +9,10 @@ pnpm dev
 bun dev
 ```
 
-AeroSphere
+AeroSphere 
 
 
-A Website Where it' about a vehicle that you can see in 3d.
+A Website Where it' about a vehicle Mainly ist about motorcyle and car that you can see in 3d.
 
 ### DEADLINE IS 30 APRIl.
 
