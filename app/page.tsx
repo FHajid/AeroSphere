@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Header from "./component/header";
 import Card from "./component/card";
+import Footer from "./component/footer";
 
 // Import komponen 3D kamu
 import Porsce911 from "./component/3D/porsche911";
@@ -70,6 +71,8 @@ export default function HomePage() {
     <div className="max-w-7xl mx-auto px-6 py-20">
       <Card />
     </div>
+    <Footer />
+    
   </main>
 );
 }

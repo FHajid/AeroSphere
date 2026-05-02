@@ -35,12 +35,6 @@ export default function Footer() {
             <span className="font-bold tracking-widest text-white">AEROSPHERE</span>
           </div>
 
-          <div className="flex gap-8">
-            <Link href="/" className="hover:text-orange-500 transition-colors">Home</Link>
-            <Link href="/product" className="hover:text-orange-500 transition-colors">Products</Link>
-            <Link href="/about" className="hover:text-orange-500 transition-colors">About</Link>
-          </div>
-
           <p>© 2026 AeroSphere. Built for the future.</p>
         </div>
       </div>
