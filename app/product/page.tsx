@@ -5,175 +5,161 @@ import Header from '../component/header';
 import Footer from '../component/footer';
 import Card from '../component/card';
 
-// 1. Data Dummy - Nanti bisa kamu pindahkan ke file konstanta tersendiri
-const allItems = [
-  { id: 1, name: 'Porsche 911', category: 'Cars', type: 'Sport', image: '/porsche.jpg' },
-  { id: 2, name: 'Honda Shadow', category: 'Motorcycles', type: 'Cruiser', image: '/shadow.jpg' },
-  { id: 3, name: 'Honda CRF', category: 'Motorcycles', type: 'Offroad', image: '/crf.jpg' },
-  { id: 4, name: 'Private Jet v.1', category: 'Airplanes', type: 'Luxury', image: '/jet.jpg' },
+const products = [
+  { id: 1, name: '911 GT3 RS', brand: 'Porsche', cat: 'Cars', price: 'Premium', speed: '312 km/h' },
+  { id: 2, name: 'Rebel 500', brand: 'Honda', cat: 'Motorcycles', price: 'Free', speed: '160 km/h' },
+  { id: 3, name: 'Cessna Citation', brand: 'Textron', cat: 'Airplanes', price: 'Enterprise', speed: '848 km/h' },
+  { id: 4, name: 'S 1000 RR', brand: 'BMW', cat: 'Motorcycles', price: 'Premium', speed: '303 km/h' },
 ];
 
-const plans = [
-  {
-    name: 'Explorer',
-    price: 'Free',
-    period: null,
-    description: 'Cocok untuk pemula yang ingin melihat-lihat.',
-    features: ['5 model 3D', 'Basic Viewer', 'Standard Specs'],
-    cta: 'Mulai Gratis',
-    highlight: false,
-  },
-  {
-    name: 'Enthusiast',
-    price: 'Rp 99rb',
-    period: '/bln',
-    description: 'Pengalaman mendalam untuk antusias otomotif.',
-    features: ['Semua model 3D', 'Explode View', '4K Resolution', 'No Watermark'],
-    cta: 'Pilih Paket',
-    highlight: true,
-  },
-  {
-    name: 'Studio',
-    price: 'Rp 299rb',
-    period: '/bln',
-    description: 'Akses penuh untuk profesional dan bisnis.',
-    features: ['Semua fitur Enthusiast', 'API Access', 'Custom Branding', 'Export Assets'],
-    cta: 'Hubungi Kami',
-    highlight: false,
-  },
-];
+export default function ProductPageV2() {
+  const [activeTab, setActiveTab] = useState('All');
 
-export default function ProductPage() {
-  const [filter, setFilter] = useState('All');
-
-  const filteredItems = filter === 'All' 
-    ? allItems 
-    : allItems.filter(item => item.category === filter);
+  const filtered = activeTab === 'All' ? products : products.filter(p => p.cat === activeTab);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="bg-[#050505] text-zinc-100 min-h-screen selection:bg-orange-500 selection:text-white">
       <Header />
 
-      {/* ── HERO SECTION ── */}
-      <section className="bg-zinc-950 pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-orange-500 font-mono tracking-[0.4em] uppercase text-xs mb-4">AeroSphere Catalog</p>
-          <h1 className="text-white text-5xl md:text-8xl font-black tracking-tighter leading-none mb-8">
-            THE <span className="text-orange-500">COLLECTION.</span>
-          </h1>
-          <p className="text-zinc-400 max-w-2xl mx-auto text-lg leading-relaxed">
-            Pilih kendaraan impianmu dan jelajahi setiap detail teknis dalam ruang tiga dimensi yang imersif.
-          </p>
+      {/* ── MINIMALIST HERO ── */}
+      <section className="pt-40 pb-20 px-6 border-b border-zinc-900">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-8">
+          <div className="max-w-2xl">
+            <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter leading-none mb-6 uppercase">
+              Precision <br /> 
+              <span className="text-orange-500 text-outline">Engineering</span>
+            </h1>
+            <p className="text-zinc-500 font-medium text-lg italic uppercase tracking-widest">
+              Digital Assets for the next generation of visualization.
+            </p>
+          </div>
+          <div className="flex gap-4 pb-2">
+            {['All', 'Cars', 'Motorcycles', 'Airplanes'].map((t) => (
+              <button 
+                key={t}
+                onClick={() => setActiveTab(t)}
+                className={`text-[10px] tracking-[0.3em] uppercase font-bold px-4 py-2 border transition-all ${
+                  activeTab === t ? 'bg-white text-black border-white' : 'border-zinc-800 text-zinc-500 hover:border-zinc-500'
+                }`}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── CATEGORY FILTER (Sticky) ── */}
-      <section className="sticky top-[64px] z-30 bg-white/80 backdrop-blur-md border-b border-zinc-100 py-6">
-        <div className="max-w-7xl mx-auto px-6 flex justify-center gap-3 md:gap-6 overflow-x-auto whitespace-nowrap">
-          {['All', 'Motorcycles', 'Cars', 'Airplanes'].map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-8 py-2.5 rounded-full text-xs font-bold tracking-widest uppercase transition-all ${
-                filter === cat 
-                ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/30' 
-                : 'bg-zinc-100 text-zinc-500 hover:bg-zinc-200'
+      {/* ── BENTO PRODUCT GRID ── */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          {filtered.map((p, index) => (
+            <div 
+              key={p.id} 
+              className={`group relative overflow-hidden bg-zinc-900/50 border border-zinc-800 p-8 min-h-[400px] flex flex-col justify-between transition-all hover:bg-zinc-900 hover:border-orange-500/50 ${
+                index === 0 ? 'md:col-span-2' : ''
               }`}
             >
-              {cat}
-            </button>
+              <div className="z-10">
+                <span className="text-orange-500 font-mono text-xs tracking-tighter block mb-2">{p.brand} {'//'} {p.cat}</span>
+                <h2 className="text-4xl font-black uppercase italic tracking-tighter leading-none">{p.name}</h2>
+              </div>
+
+              {/* Dekorasional - Angka Background */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] text-[15rem] font-black group-hover:opacity-[0.05] transition-opacity pointer-events-none">
+                0{p.id}
+              </div>
+
+              <div className="z-10 flex justify-between items-end">
+                <div className="space-y-1">
+                  <p className="text-[10px] text-zinc-500 uppercase tracking-widest">Top Speed</p>
+                  <p className="font-mono text-xl">{p.speed}</p>
+                </div>
+                <button className="h-12 w-12 rounded-full border border-zinc-700 flex items-center justify-center group-hover:bg-orange-500 group-hover:border-orange-500 transition-all duration-500">
+                   <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:rotate-45 transition-transform">
+                      <path d="M1 14L14 1M14 1H5M14 1V10" stroke="currentColor" strokeWidth="2" />
+                   </svg>
+                </button>
+              </div>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* ── PRODUCT GRID ── */}
-      <section className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {filteredItems.map((item) => (
-              <div key={item.id} className="group">
-                <div className="aspect-[16/10] bg-zinc-50 rounded-[2rem] overflow-hidden relative border border-zinc-100 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-orange-500/10 group-hover:border-orange-500/20">
-                  {/* Visual Placeholder */}
-                  <div className="absolute inset-0 flex items-center justify-center font-black text-zinc-200 text-4xl italic group-hover:scale-110 transition-transform duration-700">
-                    {item.name}
-                  </div>
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-zinc-950/0 group-hover:bg-zinc-950/60 transition-all duration-500 flex items-center justify-center">
-                    <button className="opacity-0 group-hover:opacity-100 translate-y-8 group-hover:translate-y-0 transition-all duration-500 bg-orange-500 text-white px-8 py-3 rounded-full font-bold text-sm tracking-widest uppercase shadow-xl">
-                      View 3D Mode
-                    </button>
-                  </div>
-                </div>
-                <div className="mt-6 px-2 flex justify-between items-end">
-                  <div>
-                    <span className="text-orange-500 text-[10px] font-black tracking-widest uppercase">{item.type}</span>
-                    <h3 className="text-2xl font-black text-zinc-900 tracking-tighter leading-none mt-1">{item.name}</h3>
-                  </div>
-                  <div className="text-zinc-300 font-mono text-xs italic tracking-tighter">
-                    {item.category}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* ── INFO STRIP ── */}
+      <div className="bg-orange-500 py-4 overflow-hidden border-y border-orange-600">
+        <div className="flex gap-20 animate-marquee whitespace-nowrap font-black uppercase italic tracking-tighter text-black text-2xl">
+          <span>Realistic Textures • 4K Assets • Ready for AeroSphere Viewer • High Poly Count • Optimized Mesh • </span>
+          <span>Realistic Textures • 4K Assets • Ready for AeroSphere Viewer • High Poly Count • Optimized Mesh • </span>
         </div>
-      </section>
-
-      {/* ── FEATURE CARD (Tengah) ── */}
-      <div className="bg-zinc-50 border-y border-zinc-100">
-        <Card />
       </div>
 
-      {/* ── PRICING SECTION ── */}
+      {/* ── CLEAN PRICING ── */}
       <section className="py-32 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black tracking-tighter mb-4 uppercase">Pricing Plan</h2>
-            <p className="text-zinc-500">Pilih akses yang sesuai dengan kebutuhan eksplorasimu.</p>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          <div>
+            <h2 className="text-5xl font-black uppercase italic tracking-tighter mb-6 leading-tight">
+              A Subscription <br />
+              <span className="text-orange-500">Built for Creators</span>
+            </h2>
+            <p className="text-zinc-400 text-lg mb-10 max-w-md">
+              Dapatkan akses tak terbatas ke semua library model 3D premium kami dengan satu harga tetap. Tanpa biaya tersembunyi.
+            </p>
+            <div className="grid grid-cols-2 gap-8 border-t border-zinc-800 pt-10">
+              <div>
+                <p className="text-3xl font-bold">120+</p>
+                <p className="text-xs text-zinc-500 uppercase tracking-widest mt-2">Premium Assets</p>
+              </div>
+              <div>
+                <p className="text-3xl font-bold">Weekly</p>
+                <p className="text-xs text-zinc-500 uppercase tracking-widest mt-2">New Updates</p>
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {plans.map((plan) => (
-              <div 
-                key={plan.name}
-                className={`p-8 rounded-[2rem] border transition-all duration-300 ${
-                  plan.highlight 
-                  ? 'bg-zinc-950 border-zinc-900 text-white shadow-2xl scale-105 z-10' 
-                  : 'bg-white border-zinc-100 text-zinc-900 hover:border-orange-500/30'
-                }`}
-              >
-                <p className={`text-[10px] font-black tracking-[0.2em] uppercase mb-6 ${plan.highlight ? 'text-orange-500' : 'text-zinc-400'}`}>
-                  {plan.name}
-                </p>
-                <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-4xl font-black tracking-tighter">{plan.price}</span>
-                  <span className="text-zinc-500 text-sm">{plan.period}</span>
-                </div>
-                <p className={`text-sm mb-8 leading-relaxed ${plan.highlight ? 'text-zinc-400' : 'text-zinc-500'}`}>
-                  {plan.description}
-                </p>
-                <ul className="space-y-4 mb-10">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-center gap-3 text-xs font-medium">
-                      <div className={`w-1.5 h-1.5 rounded-full ${plan.highlight ? 'bg-orange-500' : 'bg-zinc-300'}`} />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <button className={`w-full py-4 rounded-xl font-bold text-xs tracking-widest uppercase transition-all ${
-                  plan.highlight 
-                  ? 'bg-orange-500 text-white hover:bg-orange-600' 
-                  : 'bg-zinc-100 text-zinc-900 hover:bg-zinc-200'
-                }`}>
-                  {plan.cta}
-                </button>
-              </div>
-            ))}
+          <div className="bg-zinc-900 border border-zinc-800 p-10 relative overflow-hidden">
+            <div className="absolute top-0 right-0 bg-orange-500 text-black px-4 py-1 text-[10px] font-black uppercase tracking-widest">
+              Most Popular
+            </div>
+            <h3 className="text-2xl font-black uppercase mb-2">Master Access</h3>
+            <p className="text-zinc-500 text-sm mb-8">Semua yang kamu butuhkan untuk proyek visualisasi profesional.</p>
+            
+            <div className="flex items-baseline gap-2 mb-10">
+              <span className="text-6xl font-black tracking-tighter italic">Rp 149rb</span>
+              <span className="text-zinc-500 font-mono">/mo</span>
+            </div>
+
+            <ul className="space-y-4 mb-12">
+              {['Unlimited 3D Downloads', 'Commercial License', 'Priority Support', 'Raw Files Access (.obj, .fbx)'].map((list) => (
+                <li key={list} className="flex items-center gap-3 text-sm border-b border-zinc-800 pb-3 last:border-0">
+                  <span className="text-orange-500">✓</span> {list}
+                </li>
+              ))}
+            </ul>
+
+            <button className="w-full bg-white text-black py-5 font-black uppercase tracking-widest hover:bg-orange-500 transition-colors">
+              Get Started Now
+            </button>
           </div>
         </div>
       </section>
 
+      <Card />
       <Footer />
+
+      <style jsx>{`
+        .text-outline {
+          -webkit-text-stroke: 1px #f97316;
+          color: transparent;
+        }
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+          display: flex;
+          animation: marquee 20s linear infinite;
+        }
+      `}</style>
     </div>
   );
 }
