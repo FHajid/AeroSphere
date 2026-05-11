@@ -1,13 +1,15 @@
-'use client'; // Wajib karena pakai browser API (window/document)
+'use client'; 
+
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
 export default function ThreeCube() {
-  // 1. Buat referensi untuk container div
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    // 1. Copy ref ke variabel lokal (Solusi buat warning Vercel tadi)
+    const currentContainer = containerRef.current;
+    if (!currentContainer) return;
 
     // 2. Setup Scene, Camera, Renderer
     const scene = new THREE.Scene();
@@ -16,8 +18,8 @@ export default function ThreeCube() {
 
     renderer.setSize(window.innerWidth, window.innerHeight);
     
-    // Masukkan canvas ke dalam div referensi kita
-    containerRef.current.appendChild(renderer.domElement);
+    // Gunakan currentContainer, bukan containerRef.current secara langsung
+    currentContainer.appendChild(renderer.domElement);
 
     // 3. Create Cube
     const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -36,16 +38,18 @@ export default function ThreeCube() {
 
     renderer.setAnimationLoop(animate);
 
-    // 5. Cleanup (Sangat Penting di React agar tidak memory leak)
+    // 5. Cleanup (Sangat Aman)
     return () => {
       renderer.setAnimationLoop(null);
-      if (containerRef.current) {
-        containerRef.current.removeChild(renderer.domElement);
+      // Gunakan variabel lokal yang sudah kita simpan tadi
+      if (currentContainer) {
+        currentContainer.removeChild(renderer.domElement);
       }
       geometry.dispose();
       material.dispose();
+      renderer.dispose(); // Tambahkan ini juga biar memori bersih total
     };
   }, []);
 
-  return <div ref={containerRef} className="w-full h-screen" />;
+  return <div ref={containerRef} className="w-full h-screen bg-black" />;
 }

@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion'; // Tambahkan framer-motion jika ada
 import Header from "./component/header";
 import Card from "./component/card";
 import Footer from "./component/footer";
