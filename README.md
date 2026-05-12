@@ -34,7 +34,8 @@ A Website Where it' about a vehicle Mainly ist about motorcyle and car that you 
 
 
 Still working on it!
-I need to adapt to this man I still not very good at this. 
+I need to adapt to this man I still not very good at this.
+dILY LOGIN 
 
 
 
