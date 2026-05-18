@@ -18,14 +18,14 @@ export default function ProductPageV2() {
   const filtered = activeTab === 'All' ? products : products.filter(p => p.cat === activeTab);
 
   return (
-    <div className="bg-[#050505] text-zinc-100 min-h-screen selection:bg-orange-500 selection:text-white">
+    <div className="bg-[#f4f4f4] text-zinc-100 min-h-screen selection:bg-orange-500 selection:text-white">
       <Header />
 
       {/* ── MINIMALIST HERO ── */}
       <section className="pt-40 pb-20 px-6 border-b border-zinc-900">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-end gap-8">
           <div className="max-w-2xl">
-            <h1 className="text-6xl md:text-8xl font-black italic tracking-tighter leading-none mb-6 uppercase">
+            <h1 className="text-6xl md:text-8xl text-zinc-900 font-black italic tracking-tighter leading-none mb-6 uppercase">
               Precision <br /> 
               <span className="text-orange-500 text-outline">Engineering</span>
             </h1>
@@ -50,7 +50,7 @@ export default function ProductPageV2() {
       </section>
 
       {/* ── BENTO PRODUCT GRID ── */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
+      <section className="py-24 px-6 max-w-7xl mx-auto bg-[#515151]">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {filtered.map((p, index) => (
             <div 
@@ -97,11 +97,11 @@ export default function ProductPageV2() {
       <section className="py-32 px-6">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div>
-            <h2 className="text-5xl font-black uppercase italic tracking-tighter mb-6 leading-tight">
+            <h2 className="text-5xl text-zinc-900 font-black uppercase italic tracking-tighter mb-6 leading-tight">
               A Subscription <br />
               <span className="text-orange-500">Built for Creators</span>
             </h2>
-            <p className="text-zinc-400 text-lg mb-10 max-w-md">
+            <p className="text-zinc-600 text-lg mb-10 max-w-md">
               Dapatkan akses tak terbatas ke semua library model 3D premium kami dengan satu harga tetap. Tanpa biaya tersembunyi.
             </p>
             <div className="grid grid-cols-2 gap-8 border-t border-zinc-800 pt-10">
