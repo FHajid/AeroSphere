@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Header from '../component/header';
 import Footer from '../component/footer';
 import Card from '../component/card';
+import Link from 'next/link';
 
 const products = [
   { id: 1, name: '911 GT3 RS', brand: 'Porsche', cat: 'Cars', price: 'Premium', speed: '312 km/h' },
@@ -56,46 +57,47 @@ export default function ProductPageV2() {
         </div>
       </section>
 
-      {/* ── BENTO PRODUCT GRID ── */}
+      {/* ── BENTO PRODUCT GRID (LIGHT MODE + DYNAMIC ROUTING) ── */}
       <section className="py-20 px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {filtered.map((p, index) => (
-            <div 
+            <Link 
+              href={`/product/${p.id}`} 
               key={p.id} 
-              className={`group relative overflow-hidden bg-zinc-900/30 border border-zinc-900 rounded-3xl p-8 min-h-[380px] flex flex-col justify-between transition-all duration-500 hover:-translate-y-1 hover:bg-zinc-900/70 hover:border-blue-500/50 hover:shadow-[0_20px_40px_rgba(0,0,0,0.5)] ${
+              className={`group relative overflow-hidden bg-zinc-50 border border-zinc-200/80 rounded-3xl p-8 min-h-[380px] flex flex-col justify-between transition-all duration-500 hover:-translate-y-1 hover:bg-white hover:border-orange-500/50 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] ${
                 index === 0 ? 'sm:col-span-2 md:col-span-2' : ''
               }`}
             >
               {/* Card Header Info */}
               <div className="z-10">
-                <span className="text-blue-500 font-mono text-xs font-bold tracking-widest block mb-3 uppercase">
-                  {p.brand} <span className="text-zinc-700 mx-1">/</span> {p.cat}
+                <span className="text-orange-600 font-mono text-xs font-bold tracking-widest block mb-3 uppercase">
+                  {p.brand} <span className="text-zinc-300 mx-1">/</span> {p.cat}
                 </span>
-                <h2 className="text-3xl md:text-4xl font-black uppercase italic tracking-tighter leading-none text-white group-hover:text-blue-400 transition-colors">
+                <h2 className="text-3xl md:text-4xl font-black uppercase italic tracking-tighter leading-none text-zinc-900 group-hover:text-orange-600 transition-colors">
                   {p.name}
                 </h2>
               </div>
 
               {/* Dekorasional - Big Watermark Number */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.01] text-[16rem] font-black text-white group-hover:opacity-[0.03] transition-opacity duration-500 pointer-events-none select-none">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.03] text-[16rem] font-black text-zinc-900 group-hover:opacity-[0.06] transition-opacity duration-500 pointer-events-none select-none">
                 0{p.id}
               </div>
 
               {/* Card Footer Info */}
               <div className="z-10 flex justify-between items-end pt-12">
                 <div className="space-y-1">
-                  <p className="text-[10px] text-zinc-500 uppercase tracking-widest font-bold">Top Speed</p>
-                  <p className="font-mono text-2xl text-zinc-300 tracking-tight">{p.speed}</p>
+                  <p className="text-[10px] text-zinc-400 uppercase tracking-widest font-bold">Top Speed</p>
+                  <p className="font-mono text-2xl text-zinc-800 tracking-tight">{p.speed}</p>
                 </div>
                 
-                {/* Interactive Arrow Button */}
-                <button className="h-12 w-12 rounded-2xl border border-zinc-800 bg-zinc-950 flex items-center justify-center text-zinc-400 group-hover:bg-blue-600 group-hover:border-blue-600 group-hover:text-white transition-all duration-500 shadow-inner">
+                {/* Interactive Arrow Button (Diubah jadi div agar tidak ada konflik button di dalam tautan) */}
+                <div className="h-12 w-12 rounded-2xl border border-zinc-200 bg-white flex items-center justify-center text-zinc-500 group-hover:bg-orange-500 group-hover:border-orange-500 group-hover:text-white transition-all duration-500 shadow-sm">
                    <svg width="16" height="16" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="group-hover:rotate-45 transition-transform duration-500">
                       <path d="M1 14L14 1M14 1H5M14 1V10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                    </svg>
-                </button>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
