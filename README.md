@@ -24,11 +24,11 @@ A Website Where it' about a vehicle Mainly ist about motorcyle and car that you 
     - [ ] Integrated with Firebase/Supabase
     - [ ] JWT Authentication
 - [ ] **Product Page**
-    - [ ] Add at least 1 for every categories
+    - [x] Add at least 1 for every categories
     - [ ] Categories: Motorcycles, Cars, and Airplanes
 - [ ] **About & Contact**
-    - [ ] Minimalist design with Black, White, and Orange theme
-- [ ] **Login & Register**
+    - [x] Minimalist design with Black, White, and Orange theme
+- [ ] **Login & Register** (is it needed?)
     -[x] Need a Register page or not still cannot decide it 
 
 
