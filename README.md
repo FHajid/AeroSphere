@@ -13,7 +13,13 @@ AeroSphere
 
 A Website Where it' about a vehicle Mainly ist about motorcyle and car that you can see in 3d.
 
-### DEADLINE IS 30 APRIl.
+### MASALAH
+
+- [ ] browser Image with src "https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+
+- Ganti GTLF KE GLB
+
+
 
 ## 🛠️ Project Roadmap
 
