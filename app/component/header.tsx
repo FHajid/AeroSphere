@@ -25,13 +25,13 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <a href="#">
             <span className="sr-only">AeroSphere</span>
-            <Image
-              alt="AeroSphere"
+            <Image 
               src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
-              width={32}
-              height={32}
-              className="h-8 w-auto"
-              unoptimized
+              alt="Tailwind Logo"
+              width={200}
+              height={200}
+              className="h-8 w-auto" // 👈 Tambahkan w-auto di sini
+              loading="eager"
             />
           </a>
         </div>
